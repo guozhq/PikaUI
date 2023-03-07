@@ -1,6 +1,7 @@
 <template>
   <div class="top_nav">
-    <div class="logo">PikaUI</div>
+    <div class="logo" >PikaUI</div>
+    <div class="toggleAside" @click="toggleAside"></div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
@@ -9,8 +10,15 @@
 </template>
 
 <script lang="ts">
+import {inject, Ref} from 'vue';
+
 export default {
-  name: 'TopNav'
+  name: 'TopNav',
+  setup(){
+    const asideVisible = inject<Ref<boolean>>('asideVisible');
+    const toggleAside = () =>{asideVisible!.value = !asideVisible!.value}
+    return {toggleAside}
+  }
 };
 </script>
 
@@ -29,6 +37,16 @@ export default {
     li {
       margin: 0 1em;
     }
+  }
+  .toggleAside{
+    width:24px;
+    height: 24px;
+    background: red;
+    display:none;
+  }
+  @media (max-width:500px){
+    .logo{display: none;}
+    .toggleAside{display:inline-block;}
   }
 }
 </style>
