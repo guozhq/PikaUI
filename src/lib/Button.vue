@@ -1,5 +1,6 @@
 <template>
-  <button class="pika-button" :class="classes">
+  <button class="pika-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="pika-loadingIndicator"></span>
     <slot />
   </button>
 </template>
@@ -18,6 +19,14 @@ export default {
     level: {
       type: String,
       default: "normal",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     }
   },
   setup(props: { theme: any; size: any; level: any;}){
@@ -40,6 +49,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .pika-button{
   box-sizing: border-box;
   height: $h;
@@ -132,6 +142,36 @@ $red: red;
         color: darken($red, 10%);
       }
     }
+  }
+  &.pika-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.pika-theme-link, &.pika-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+    }
+  }
+  > .pika-loadingIndicator{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: pika-spin 1s infinite linear;
+  }
+  @keyframes pika-spin {
+    0%{transform: rotate(0deg)}
+    100%{transform: rotate(360deg)}
   }
 }
 </style>
