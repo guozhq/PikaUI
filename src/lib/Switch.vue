@@ -1,6 +1,6 @@
 <template>
   <button class="pika-switch" :class="{checked}" @click="toggle">
-    <span class="pika-switch-handle"></span>
+    <span></span>
   </button>
 </template>
 <script lang="ts">
