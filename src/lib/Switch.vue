@@ -1,5 +1,5 @@
 <template>
-  <button class="pika-switch" :class="{checked}" @click="toggle">
+  <button class="pika-switch" :class="{'pika-checked':value}" @click="toggle">
     <span></span>
   </button>
 </template>
@@ -7,11 +7,11 @@
 import {ref} from 'vue';
 export default{
   setup(){
-    const checked=ref(false);
+    const value=ref(false);
     const toggle=()=>{
-      checked.value = !checked.value
+      value.value = !value.value
     }
-    return {checked, toggle}
+    return {value, toggle}
   }
 }
 </script>
@@ -35,7 +35,7 @@ $h2: $h - 4px;
     border-radius: calc($h2/2);
     transition: left 250ms;
   }
-  &.checked{
+  &.pika-checked{
     background: blue;
     > span{
       left: calc(100% - $h2 - 2px);
