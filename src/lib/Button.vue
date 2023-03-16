@@ -1,9 +1,18 @@
 <template>
-  <button class="pika-button">
-  <span></span>
+  <button class="pika-button" :class="`theme-${theme}`">
     <slot />
   </button>
 </template>
+<script lang="ts">
+export default {
+  props: {
+    theme: {
+      type:String,
+      default:'button',
+    },
+  }
+}
+</script>
 <style lang="scss">
 .pika-button{
   box-sizing: border-box;
