@@ -14,14 +14,19 @@ export default {
     size: {
       type: String,
       default: 'normal',
+    },
+    level: {
+      type: String,
+      default: "normal",
     }
   },
-  setup(props: { theme: any; size: any; }){
-    const {theme, size} = props;
+  setup(props: { theme: any; size: any; level: any;}){
+    const {theme, size, level} = props;
     const classes = computed(()=>{
       return {
         [`pika-theme-${theme}`]:theme,
         [`pika-size-${size}`]:size,
+        [`pika-level-${level}`]:level,
       }
     });
     return {classes};
@@ -34,6 +39,7 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
+$red: red;
 .pika-button{
   box-sizing: border-box;
   height: $h;
@@ -79,6 +85,53 @@ $radius: 4px;
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
+  }
+  &.pika-theme-button {
+    &.pika-level-main {
+      background: $blue;
+      color: white;
+      border-color: $blue;
+      &:hover,
+      &:focus {
+        background: darken($blue, 10%);
+        border-color: darken($blue, 10%);
+      }
+    }
+    &.pika-level-danger {
+      background: $red;
+      border-color: $red;
+      color: white;
+      &:hover,
+      &:focus {
+        background: darken($red, 10%);
+        border-color: darken($red, 10%);
+      }
+    }
+  }
+  &.pika-theme-link {
+    &.pika-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
+  }
+  &.pika-theme-text {
+    &.pika-level-main {
+      color: $blue;
+      &:hover,
+      &:focus {
+        color: darken($blue, 10%);
+      }
+    }
+    &.pika-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
   }
 }
 </style>
