@@ -1,5 +1,6 @@
 <template>
   <template v-if="visible">
+    <Teleport to="body">
   <div class="pika-dialog-overlay" @click="onClickOverlay"></div>
   <div class="pika-dialog-wrapper">
     <div class="pika-dialog">
@@ -16,6 +17,7 @@
     </footer>
     </div>
   </div>
+    </Teleport>
   </template>
 </template>
 <script lang="ts">
@@ -53,7 +55,7 @@ export default {
       }
     }
     const cancel =() =>{
-      context.emit('cancel')
+      props.cancel?.()
       close()
     }
     return {close, onClickOverlay, ok, cancel}
