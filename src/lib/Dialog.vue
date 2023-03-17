@@ -1,6 +1,6 @@
 <template>
   <template v-if="visible">
-  <div class="pika-dialog-overlay"></div>
+  <div class="pika-dialog-overlay" @click="onClickOverlay"></div>
   <div class="pika-dialog-wrapper">
     <div class="pika-dialog">
     <header>标题<span @click="close" class="pika-dialog-close"></span></header>
@@ -9,8 +9,8 @@
       <p>第二行</p>
     </main>
     <footer>
-      <Button>OK</Button>
-      <Button>Cancel</Button>
+      <Button @click="ok">OK</Button>
+      <Button @click="cancel">Cancel</Button>
     </footer>
     </div>
   </div>
@@ -23,9 +23,39 @@ export default {
     visible:{
       type: Boolean,
       default: false,
+    },
+    closeOnClickOverlay:{
+      type: Boolean,
+      default: true,
+    },
+    ok:{
+      type:Function,
+    },
+    cancel:{
+      type:Function,
     }
   },
-  components: {Button}
+  components: {Button},
+  setup(props, context){
+    const close = ()=>{
+      context.emit('update:visible', false)
+    }
+    const onClickOverlay = () =>{
+      if (props.closeOnClickOverlay){
+        close()
+      }
+    }
+    const ok =() =>{
+      if(props.ok && props.ok() !== false){
+        close()
+      }
+    }
+    const cancel =() =>{
+      context.emit('cancel')
+      close()
+    }
+    return {close, onClickOverlay, ok, cancel}
+}
 }
 </script>
 <style lang="scss">
