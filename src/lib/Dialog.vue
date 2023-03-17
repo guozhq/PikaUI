@@ -3,10 +3,12 @@
   <div class="pika-dialog-overlay" @click="onClickOverlay"></div>
   <div class="pika-dialog-wrapper">
     <div class="pika-dialog">
-    <header>标题<span @click="close" class="pika-dialog-close"></span></header>
+    <header>
+      <slot name="title"/>
+      <span @click="close" class="pika-dialog-close"></span>
+    </header>
     <main>
-      <p>第一行</p>
-      <p>第二行</p>
+      <slot name="content"/>
     </main>
     <footer>
       <Button @click="ok">OK</Button>

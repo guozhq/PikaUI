@@ -1,7 +1,15 @@
 <template>
   <h1>示例1</h1>
   <Button @click="toggle">toggle</Button>
-  <Dialog v-model:visible="x" :closeOnClickOverlay="false" :ok="f1" :cancel="f2"></Dialog>
+  <Dialog v-model:visible="x" :closeOnClickOverlay="false" :ok="f1" :cancel="f2">
+    <template v-slot:content>
+      <div>h1</div>
+      <div>h2</div>
+    </template>
+    <template v-slot:title>
+      <Strong>标题</Strong>
+    </template>
+  </Dialog>
 </template>
 
 <script lang="ts">
