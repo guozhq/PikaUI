@@ -4,7 +4,9 @@
       <div class="pika-tabs-nav-item"
            @click="select(t)"
            :class="{selected: t === selected }"
-           v-for="(t,index) in titles" :ref="el=>{ if (el) navItems[index]=el}" :key="index">{{t}}</div>
+           v-for="(t,index) in titles"
+           :ref="el=>{ if (t === selected) selectedItem=el}"
+           :key="index">{{t}}</div>
       <div class="pika-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="pika-tabs-content">
@@ -24,15 +26,13 @@ export default {
   },
   setup(props, context){
     const container = ref<HTMLDivElement>(null)
-    const navItems = ref<HTMLDivElement[]>([])
+    const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null)
     const x = () =>{
-      const divs = navItems.value
-      const result = divs.filter(div =>div.classList.contains('selected'))[0]
-      const {width} = result.getBoundingClientRect()
+      const {width} = selectedItem.value.getBoundingClientRect()
       indicator.value.style.width = width + 'px'
       const {left:left1} = container.value.getBoundingClientRect()
-      const {left:left2} = result.getBoundingClientRect()
+      const {left:left2} = selectedItem.value.getBoundingClientRect()
       const left = left2 - left1
       indicator.value.style.left = left + 'px'
     }
@@ -59,8 +59,8 @@ export default {
       current,
       select,
       indicator,
-      navItems,
       container,
+      selectedItem,
     }
   }
 }
