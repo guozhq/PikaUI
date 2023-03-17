@@ -25,9 +25,9 @@ export default {
     }
   },
   setup(props, context){
-    const selectedItem = ref<HTMLDivElement>(null)
-    const indicator = ref<HTMLDivElement>(null)
-    const container = ref<HTMLDivElement>(null)
+    const selectedItem = ref<HTMLDivElement>()
+    const indicator = ref<HTMLDivElement>()
+    const container = ref<HTMLDivElement>()
     watchEffect(()=> {
       if (selectedItem.value && indicator.value && container.value) {
       const {width} = selectedItem.value.getBoundingClientRect()
