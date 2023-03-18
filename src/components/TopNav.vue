@@ -1,6 +1,10 @@
 <template>
   <div class="top_nav">
-    <div class="logo" >PikaUI</div>
+    <div class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-Pikachu"></use>
+      </svg>
+    </div>
     <div class="toggleAside" @click="toggleAside"></div>
     <ul class="menu">
       <li>菜单1</li>
@@ -23,13 +27,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$color: #007974;
 .top_nav {
+  color:$color;
   display: flex;
   max-width: 100%;
   padding: 16px;
   justify-content: space-between;
   .logo {
     max-width: 6em;
+    >svg{
+      width:32px;
+      height:32px;
+    }
   }
   .menu {
     display: flex;
