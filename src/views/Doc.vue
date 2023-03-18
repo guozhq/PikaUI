@@ -13,7 +13,7 @@ export default {
 </script>
 <template>
   <div class="layout">
-    <TopNav class="nav"/>
+    <TopNav class="nav" :toggleMenuButtonVisible="true"/>
     <div class="content">
       <aside v-if="asideVisible">
         <h2>组件列表</h2>

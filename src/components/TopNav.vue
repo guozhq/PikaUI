@@ -5,10 +5,13 @@
         <use xlink:href="#icon-Pikachu"></use>
       </svg>
     </div>
-    <div class="toggleAside" @click="toggleAside"></div>
+    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleAside">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li>
+        <router-link to="/doc">文档</router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -17,7 +20,12 @@
 import {inject, Ref} from 'vue';
 
 export default {
-  name: 'TopNav',
+  props:{
+    toggleMenuButtonVisible:{
+      type:Boolean,
+      default: false,
+    }
+  },
   setup(){
     const asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () =>{asideVisible!.value = !asideVisible!.value}
@@ -50,7 +58,6 @@ $color: #007974;
   .toggleAside{
     width:24px;
     height: 24px;
-    background: red;
     display:none;
   }
   @media (max-width:500px){
