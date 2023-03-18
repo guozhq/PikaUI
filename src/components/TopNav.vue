@@ -1,13 +1,13 @@
 <template>
   <div class="top_nav">
-    <div class="logo">
-      <svg class="icon">
-        <use xlink:href="#icon-Pikachu"></use>
-      </svg>
-    </div>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleAside">
       <use xlink:href="#icon-menu"></use>
     </svg>
+    <router-link to="/" class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-Pikachu"></use>
+      </svg>
+    </router-link>
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
@@ -61,7 +61,12 @@ $color: #007974;
     display:none;
   }
   @media (max-width:500px){
-    .logo{display: none;}
+    >.menu {
+      display: none;
+    }
+    >.logo {
+      margin: 0 auto;
+    }
     .toggleAside{display:inline-block;}
   }
 }
