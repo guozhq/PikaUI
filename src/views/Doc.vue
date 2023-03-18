@@ -65,7 +65,7 @@ export default {
   aside {
     background: lightgreen;
     width: 150px;
-    padding: 24px 0 0 16px;
+    padding: 16px 0;
     flex-shrink: 0;
     h2 {
       margin-bottom: 4px;
@@ -73,10 +73,15 @@ export default {
     }
     ol {
       li {
-        a {
-          display: block;
+        a{
+          display:block;
           padding: 4px 16px;
           text-decoration: none;
+        }
+        .router-link-active{
+          background:white;
+          display: block;
+          
         }
       }
     }
