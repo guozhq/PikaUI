@@ -10,13 +10,13 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch /&gt;</pre>
+        <pre>{{Switch1Demo.__sourceCode}}</pre>
       </div>
     </div>
     <div class="demo">
       <h2>支持 disabled </h2>
       <div class="demo-component">
-        <Switch2/>
+        <Switch2Demo/>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -29,11 +29,17 @@
 </template>
 
 <script lang="ts">
-import Switch1 from '../components/Switch1.demo.vue'
-import Switch2 from '../components/Switch2.demo.vue'
+import Switch1Demo from '../components/Switch1.demo.vue'
+import Switch2Demo from '../components/Switch2.demo.vue'
 import Button from '../lib/Button.vue'
 export default {
-  components: { Switch1, Switch2, Button},
+  components: { Switch1Demo, Switch2Demo, Button},
+  setup(){
+    return {
+      Switch1Demo,
+      Switch2Demo,
+    }
+  }
 };
 </script>
 

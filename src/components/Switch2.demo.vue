@@ -1,3 +1,4 @@
+
 <template>
   <Switch disabled/>
 </template>

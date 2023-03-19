@@ -1,10 +1,15 @@
+<demo>
+常规
+</demo>
 <template>
-  <Switch/>
+  <Switch />
 </template>
-
 <script lang="ts">
 import Switch from '../lib/Switch.vue'
-export default {
-  components: {Switch}
+export default{
+  components: {
+    Switch
+  },
+  setup(){}
 }
 </script>
