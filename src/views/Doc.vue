@@ -90,7 +90,6 @@ export default {
       flex: 1;
       padding: 16px;
       margin: 10px 0 0 10px;
-      background: lightblue;
     }
   @media (max-width:500px){
     main{margin:0}
