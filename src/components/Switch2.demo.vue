@@ -1,4 +1,6 @@
-
+<i18n>
+123
+</i18n>
 <template>
   <Switch disabled/>
 </template>
