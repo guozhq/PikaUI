@@ -1,5 +1,5 @@
 <i18n>
-123
+常规用法
 </i18n>
 <template>
   <Switch/>

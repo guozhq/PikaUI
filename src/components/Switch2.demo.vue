@@ -1,5 +1,5 @@
 <i18n>
-123
+支持 disabled
 </i18n>
 <template>
   <Switch disabled/>
