@@ -1,5 +1,5 @@
 <script lang="ts">
-import TopNav from '../components/TopNav.vue';
+import TopNav from '../components/Tabs/TopNav.vue';
 import {inject, Ref} from 'vue';
 
 export default {

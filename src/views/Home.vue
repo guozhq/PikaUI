@@ -39,7 +39,7 @@
   </div>
 </template>
 <script lang="ts">
-import TopNav from '../components/TopNav.vue';
+import TopNav from '../components/Tabs/TopNav.vue';
 export default {
   name: 'Home',
   components: {TopNav}
