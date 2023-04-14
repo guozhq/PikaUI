@@ -13,7 +13,7 @@
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/doc/intro" style="text-decoration: none;">文档</router-link>
+        <router-link to="/doc/intro" style="text-decoration: none; ">文档</router-link>
       </li>
     </ul>
   </div>

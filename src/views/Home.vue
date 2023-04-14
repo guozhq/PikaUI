@@ -50,8 +50,16 @@ $green: #02bcb0;
 $border-radius: 4px;
 $color: #28d1c9;
 .topnavAndBanner{
-  background: rgb(227,255,253);
-  background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
+  //background: rgb(227,255,253);
+  //background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
+  //background: rgb(247,251,254);
+  //background: linear-gradient(145deg, rgba(247,251,254,1) 0%, rgba(200,230,255,1) 100%);
+  //background: rgb(28,181,224);
+  //background: linear-gradient(145deg, rgba(28,181,224,1) 0%, rgba(0,8,81,1) 100%);
+  //background: rgb(31,58,99);
+  //background: linear-gradient(145deg, rgba(31,58,99,1) 0%, rgba(30,55,86,1) 100%);
+  background: rgb(72,185,255);
+  background: linear-gradient(145deg, rgba(72,185,255,1) 0%, rgba(72,125,255,1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features{
@@ -93,7 +101,8 @@ $color: #28d1c9;
   }
 }
 .banner {
-  color:$color;
+  //color:$color;
+  color:#fffeff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,8 +111,12 @@ $color: #28d1c9;
     padding: 8px 0;
     a {
       margin: 0 8px;
-      background:$green;
-      color: white;
+      //background:$green;
+      //background: #0d1832;
+      background:#eef2ff;
+      //color: white;
+      //color:#7693e0;
+      color:#0d1832;
       display: inline-block;
       border-radius: $border-radius;
       padding: 8px 24px;
