@@ -1,27 +1,16 @@
-<script lang="ts">
-import TopNav from '../components/Tabs/TopNav.vue';
-import {inject, Ref} from 'vue';
-
-export default {
-  name: 'Doc',
-  components: {TopNav},
-  setup() {
-    const asideVisible = inject<Ref<boolean>>('asideVisible');
-    return {asideVisible};
-    
-  }
-};
-</script>
 <template>
   <div class="layout">
-    <TopNav class="nav" :toggleMenuButtonVisible="true" :toggleVersionVisible="true"/>
+    <TopNav class="nav"
+            :toggleMenuButtonVisible="true"
+            :toggleVersionVisible="true"
+            :toggleLogoVisible="isLargeScreen"/>
     <div class="content">
       <aside v-if="asideVisible">
         <router-link to="/" class="asideLogo">
           <svg class="icon" >
-            <use xlink:href="#icon-cherry"></use>
+            <use xlink:href="#icon-tiger"></use>
           </svg>
-          <h4>CHERRY UI</h4>
+          <h4>Simple UI</h4>
         </router-link>
         <h2>文档</h2>
         <ol>
@@ -56,8 +45,35 @@ export default {
       </main>
     </div>
   </div>
+  <div class="overlay" v-show="asideVisible && isLargeScreen" @click="toggleAside"></div>
 </template>
-
+<script lang="ts">
+import TopNav from '../components/TopNav.vue';
+import {inject, Ref, ref, onMounted, onUnmounted} from 'vue';
+export default {
+  name: 'Doc',
+  components: {TopNav},
+  setup() {
+    const asideVisible = inject<Ref<boolean>>('asideVisible');
+    const screenWidth = ref(window.innerWidth)
+    const isLargeScreen = ref(false)
+    const handleResize = () => {
+      screenWidth.value = window.innerWidth
+      isLargeScreen.value = screenWidth.value <= 500
+      asideVisible!.value = screenWidth.value > 500
+    }
+    onMounted(() => {
+      window.addEventListener('resize', handleResize)
+      isLargeScreen.value = screenWidth.value <= 500
+    })
+    
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleResize)
+    })
+    const toggleAside = () =>{asideVisible!.value = !asideVisible!.value}
+    return {asideVisible, isLargeScreen, toggleAside};
+}};
+</script>
 <style scoped lang="scss">
 $aside-index : 128;
 $nav-index: 256;
@@ -72,7 +88,9 @@ $aside-width: 200px;
     @media (min-width: 500px) {
       margin-left:$aside-width + 30px;
       margin-right:30px;
+      
     }
+    background: #f5f8fa;
     border-bottom: 1px dashed #e4e6ef;
   }
   >.content{
@@ -127,7 +145,8 @@ aside{
         color:#3f4254;
       }
       .router-link-active {
-        background: #8cc15317;
+        background: #f4bf56;
+        color:#fff;
       }
     }
   }
@@ -156,7 +175,15 @@ main{
   }
   main{
     padding:10px;
-    margin-top:20px;
+    margin-top:0;
   }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.12);
 }
 </style>

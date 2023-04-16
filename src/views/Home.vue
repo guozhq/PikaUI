@@ -1,10 +1,10 @@
 <template>
   <div>
   <div class="topnavAndBanner">
-    <TopNav :toggleLogoVisible="true"/>
+    <TopNav :toggleLogoVisible="true" style="color:white;"/>
     <div class="banner">
-      <h1>Pika UI</h1>
-      <h2>一个厉害的UI框架</h2>
+      <h1>Simple UI</h1>
+      <h2>一个简单的UI框架</h2>
       <p class="actions">
         <a href="https://github.com">GitHub</a>
         <router-link to="/doc/intro">开始</router-link>
@@ -39,7 +39,7 @@
   </div>
 </template>
 <script lang="ts">
-import TopNav from '../components/Tabs/TopNav.vue';
+import TopNav from '../components/TopNav.vue';
 export default {
   name: 'Home',
   components: {TopNav}
@@ -52,12 +52,6 @@ $color: #28d1c9;
 .topnavAndBanner{
   //background: rgb(227,255,253);
   //background: linear-gradient(145deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
-  //background: rgb(247,251,254);
-  //background: linear-gradient(145deg, rgba(247,251,254,1) 0%, rgba(200,230,255,1) 100%);
-  //background: rgb(28,181,224);
-  //background: linear-gradient(145deg, rgba(28,181,224,1) 0%, rgba(0,8,81,1) 100%);
-  //background: rgb(31,58,99);
-  //background: linear-gradient(145deg, rgba(31,58,99,1) 0%, rgba(30,55,86,1) 100%);
   background: rgb(72,185,255);
   background: linear-gradient(145deg, rgba(72,185,255,1) 0%, rgba(72,125,255,1) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
@@ -102,7 +96,7 @@ $color: #28d1c9;
 }
 .banner {
   //color:$color;
-  color:#fffeff;
+  color:#fff;
   display: flex;
   flex-direction: column;
   align-items: center;

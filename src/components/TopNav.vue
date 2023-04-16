@@ -5,7 +5,7 @@
     </svg>
     <router-link to="/" class="logo" v-if="toggleLogoVisible">
       <svg class="icon">
-        <use xlink:href="#icon-cherry" style="font-size:60px;"></use>
+        <use xlink:href="#icon-tiger" style="font-size:60px;"></use>
       </svg>
     </router-link>
     <router-link to="/doc/intro" class="version" v-if="toggleVersionVisible">
@@ -13,7 +13,7 @@
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/doc/intro" style="text-decoration: none; ">文档</router-link>
+        <router-link to="/doc/intro" style="text-decoration: none;">文档</router-link>
       </li>
     </ul>
   </div>
@@ -77,6 +77,7 @@ $color: #0d2451;
   }
   .menu {
     display: flex;
+    
     li {
       margin: 0 1em;
     }

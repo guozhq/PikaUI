@@ -37,7 +37,7 @@ $h2: $h - 4px;
     transition: left 250ms;
   }
   &.pika-checked{
-    background: blue;
+    background: #1677ff;
     > span{
       left: calc(100% - $h2 - 2px);
     }
