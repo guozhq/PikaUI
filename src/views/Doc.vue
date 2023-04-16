@@ -3,7 +3,7 @@
     <TopNav class="nav"
             :toggleMenuButtonVisible="true"
             :toggleVersionVisible="true"
-            :toggleLogoVisible="isLargeScreen"/>
+            :toggleLogoVisible="isLargeScreen" style="color:#0d2451;"/>
     <div class="content">
       <aside v-if="asideVisible">
         <router-link to="/" class="asideLogo">
@@ -85,6 +85,7 @@ $aside-width: 200px;
   >.nav{
     flex-shrink: 0;
     z-index:$nav-index;
+    color:#0d2451;
     @media (min-width: 500px) {
       margin-left:$aside-width + 30px;
       margin-right:30px;

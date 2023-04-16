@@ -48,13 +48,14 @@ export default {
 <style lang="scss" scoped>
 $color: #0d2451;
 .top_nav {
-  color:$color;
+  color:white;
   display: flex;
   max-width: 100%;
   padding: 16px;
   justify-content: space-between;
   .logo {
     max-width: 6em;
+    color:$color;
     >svg{
       width:32px;
       height:32px;
@@ -77,7 +78,6 @@ $color: #0d2451;
   }
   .menu {
     display: flex;
-    
     li {
       margin: 0 1em;
     }

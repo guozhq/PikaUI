@@ -1,7 +1,7 @@
 <template>
   <div>
   <div class="topnavAndBanner">
-    <TopNav :toggleLogoVisible="true" style="color:white;"/>
+    <TopNav :toggleLogoVisible="true"/>
     <div class="banner">
       <h1>Simple UI</h1>
       <h2>一个简单的UI框架</h2>
